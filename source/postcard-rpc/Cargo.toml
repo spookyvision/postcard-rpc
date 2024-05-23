@@ -20,7 +20,7 @@ cobs = { version = "0.2.3", optional = true, default-features = false }
 defmt = { version = "0.3.5", optional = true }
 heapless = "0.8.0"
 postcard = { version = "1.0.8", features = ["experimental-derive"] }
-serde = { version = "1.0.192", default-features = false, features = ["derive"] }
+serde = { version = "1", default-features = false, features = ["derive"] }
 
 #
 # std-only features
@@ -94,6 +94,9 @@ version = "0.1.2"
 optional = true
 
 
+[dependencies.postcard-dyn]
+git = "https://github.com/jamesmunns/postcard-dyn.git"
+optional = true
 #
 # no_std-only features
 #
@@ -139,6 +142,8 @@ use-std = [
     "postcard/use-std",
     "dep:tracing",
     "dep:trait-variant",
+    "dep:serde_json",
+    "dep:postcard-dyn",
 ]
 cobs-serial = ["cobs/use_std", "dep:tokio-serial"]
 raw-nusb = ["dep:nusb", "use-std"]
@@ -146,7 +151,6 @@ webusb = [
 
     "dep:gloo",
     "dep:web-sys",
-    "dep:serde_json",
     "dep:wasm-bindgen",
     "dep:wasm-bindgen-futures",
     "dep:js-sys",
