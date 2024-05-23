@@ -185,8 +185,8 @@ where
         }
     }
 
-    /// Send a message of type [Endpoint::Request][Endpoint] to `path`, and await
-    /// a response of type [Endpoint::Response][Endpoint] (or WireErr) to `path`.
+    /// Send a message of dynamically typed `req_schema` [NamedType] to an endpoint specified by `req_key` [Key], and await
+    /// a response of dynamically typed `resp_schema` [NamedType] (or WireErr) to `resp_key` [Key].
     ///
     /// This function will wait potentially forever. Consider using with a timeout.
     pub async fn send_resp_dyn(
